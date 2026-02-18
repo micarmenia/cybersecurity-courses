@@ -140,6 +140,72 @@
             font-weight: 800;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .lang-btn.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .lang-btn.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
         .header-content {
             display: flex;
             justify-content: flex-end;
@@ -224,6 +290,246 @@
         /* Courses Grid */
         .courses-section {
             padding: 4rem 0 6rem;
+        }
+
+        /* Trainers Section */
+        .trainers-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 198, 0.02) 100%);
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .trainer-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .trainer-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 255, 198, 0.15);
+        }
+
+        .trainer-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--border);
+            padding: 2rem;
+        }
+
+        .trainer-avatar svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--bg-primary);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .trainer-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .trainer-title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: var(--accent-cyan);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 0.75rem;
+        }
+
+        .testimonial-avatar svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--bg-primary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-course {
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(0, 255, 198, 0.05), rgba(0, 136, 255, 0.05));
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-title .highlight {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 198, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 3rem;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 255, 198, 0.1);
+            transform: translateY(-2px);
         }
 
         .section-header {
@@ -349,6 +655,11 @@
         }
 
         .detail-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent-cyan);
             font-size: 1rem;
@@ -372,38 +683,9 @@
             font-weight: 600;
         }
 
-        .countdown-timer {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 255, 198, 0.1);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-cyan);
-            margin-top: 1rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
 
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(0, 255, 198, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 0 8px rgba(0, 255, 198, 0);
-            }
-        }
 
-        .countdown-icon {
-            animation: spin 3s linear infinite;
-        }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
 
         .course-meta {
             display: flex;
@@ -422,6 +704,11 @@
         }
 
         .meta-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent-cyan);
         }
@@ -670,6 +957,12 @@
             margin-top: 4rem;
         }
 
+        .about-features .feature-box:last-child {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
         .feature-box {
             padding: 2rem;
             background: var(--bg-card);
@@ -732,6 +1025,12 @@
             margin-top: 3rem;
         }
 
+        .contact-info .contact-card:last-child {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
         .contact-card {
             padding: 2rem;
             background: var(--bg-card);
@@ -775,6 +1074,39 @@
             color: var(--accent-blue);
         }
 
+        .detail-icon svg,
+        .meta-icon svg,
+        .contact-icon svg,
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--accent-cyan);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -788,6 +1120,27 @@
 
             .courses-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .trainers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
             }
 
             .course-footer {
@@ -813,6 +1166,10 @@
 
     <header>
         <div class="container">
+            <div class="language-switcher">
+                <a href="index.html" class="lang-btn active">🇺🇸 English</a>
+                <a href="index-am.html" class="lang-btn">🇦🇲 Հայերեն</a>
+            </div>
             <div class="company-name">
                 <span>Microsoft Innovation Center Armenia</span> × <span>CyHub Armenia</span>
             </div>
@@ -861,28 +1218,28 @@
                             
                             <div class="course-details">
                                 <div class="detail-item">
-                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Start Date</div>
                                         <div class="detail-value">March 3, 2026</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">⏰</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Schedule</div>
                                         <div class="detail-value">Tue, Thu, Sat 17:30-19:30</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📚</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Total Lessons</div>
                                         <div class="detail-value">12 lessons</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📆</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Duration</div>
                                         <div class="detail-value">1 month</div>
@@ -890,18 +1247,14 @@
                                 </div>
                             </div>
                             
-                            <div class="countdown-timer">
-                                <span class="countdown-icon">⏳</span>
-                                <span>Next cohort starts in <strong id="countdown-1">19</strong> days</span>
-                            </div>
                         </div>
                         <div class="course-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🏢</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg></span>
                                 <span>Offline Only</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📍</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                                 <span>Yerevan</span>
                             </div>
                         </div>
@@ -919,28 +1272,28 @@
                             
                             <div class="course-details">
                                 <div class="detail-item">
-                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Start Date</div>
                                         <div class="detail-value">March 12, 2026</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">⏰</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Schedule</div>
                                         <div class="detail-value">Tue, Thu, Sat 20:00-22:00</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📚</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Total Lessons</div>
                                         <div class="detail-value">40 lessons</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📆</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Duration</div>
                                         <div class="detail-value">4 months</div>
@@ -948,18 +1301,14 @@
                                 </div>
                             </div>
                             
-                            <div class="countdown-timer">
-                                <span class="countdown-icon">⏳</span>
-                                <span>Next cohort starts in <strong id="countdown-2">28</strong> days</span>
-                            </div>
                         </div>
                         <div class="course-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🏢</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg></span>
                                 <span>Offline Only</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📍</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                                 <span>Yerevan</span>
                             </div>
                         </div>
@@ -977,28 +1326,28 @@
                             
                             <div class="course-details">
                                 <div class="detail-item">
-                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Start Date</div>
                                         <div class="detail-value">February 25, 2026</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">⏰</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Schedule</div>
                                         <div class="detail-value">Wed, Sat 20:00-22:00</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📚</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Total Lessons</div>
                                         <div class="detail-value">30 lessons</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📆</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Duration</div>
                                         <div class="detail-value">3.5 months</div>
@@ -1014,18 +1363,14 @@
                                 </ul>
                             </div>
                             
-                            <div class="countdown-timer">
-                                <span class="countdown-icon">⏳</span>
-                                <span>Next cohort starts in <strong id="countdown-3">13</strong> days</span>
-                            </div>
                         </div>
                         <div class="course-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🏢</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg></span>
                                 <span>Offline Only</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📍</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                                 <span>Yerevan</span>
                             </div>
                         </div>
@@ -1043,28 +1388,28 @@
                             
                             <div class="course-details">
                                 <div class="detail-item">
-                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Start Date</div>
                                         <div class="detail-value">April 15, 2026</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">⏰</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Schedule</div>
                                         <div class="detail-value">Wed, Sat 20:00-22:00</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📚</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Total Lessons</div>
                                         <div class="detail-value">15 lessons (3.5 hrs each)</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📆</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Duration</div>
                                         <div class="detail-value">2 months</div>
@@ -1081,18 +1426,14 @@
                                 </ul>
                             </div>
                             
-                            <div class="countdown-timer">
-                                <span class="countdown-icon">⏳</span>
-                                <span>Next cohort starts in <strong id="countdown-4">62</strong> days</span>
-                            </div>
                         </div>
                         <div class="course-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🏢</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg></span>
                                 <span>Offline Only</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📍</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                                 <span>Yerevan</span>
                             </div>
                         </div>
@@ -1110,28 +1451,28 @@
                             
                             <div class="course-details">
                                 <div class="detail-item">
-                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Start Date</div>
                                         <div class="detail-value">April 27, 2026</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">⏰</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Schedule</div>
                                         <div class="detail-value">Tue, Sat 20:00-22:00</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📚</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Total Lessons</div>
                                         <div class="detail-value">20 lessons</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📆</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Duration</div>
                                         <div class="detail-value">3 months</div>
@@ -1146,18 +1487,14 @@
                                 </ul>
                             </div>
                             
-                            <div class="countdown-timer">
-                                <span class="countdown-icon">⏳</span>
-                                <span>Next cohort starts in <strong id="countdown-5">74</strong> days</span>
-                            </div>
                         </div>
                         <div class="course-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🏢</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg></span>
                                 <span>Offline Only</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📍</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                                 <span>Yerevan</span>
                             </div>
                         </div>
@@ -1175,28 +1512,28 @@
                             
                             <div class="course-details">
                                 <div class="detail-item">
-                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Start Date</div>
                                         <div class="detail-value">May 6, 2026</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">⏰</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Schedule</div>
                                         <div class="detail-value">Mon, Wed, Fri 20:00-22:00</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📚</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Total Lessons</div>
                                         <div class="detail-value">20 lessons</div>
                                     </div>
                                 </div>
                                 <div class="detail-item">
-                                    <span class="detail-icon">📆</span>
+                                    <span class="detail-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                                     <div class="detail-content">
                                         <div class="detail-label">Duration</div>
                                         <div class="detail-value">3 months</div>
@@ -1211,18 +1548,14 @@
                                 </ul>
                             </div>
                             
-                            <div class="countdown-timer">
-                                <span class="countdown-icon">⏳</span>
-                                <span>Next cohort starts in <strong id="countdown-6">83</strong> days</span>
-                            </div>
                         </div>
                         <div class="course-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🏢</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg></span>
                                 <span>Offline Only</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📍</span>
+                                <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                                 <span>Yerevan</span>
                             </div>
                         </div>
@@ -1230,6 +1563,87 @@
                             <div class="course-price">645,000 AMD</div>
                             <button class="btn-register" onclick="openModal('Cybersecurity Analysts (CySA+)', '645,000 AMD', 'Intermediate', 'May 6, 2026')">Register</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trainers-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Trainers</h2>
+                    <p>Learn from industry experts with real-world experience</p>
+                </div>
+
+                <div class="trainers-grid">
+                    <div class="trainer-card">
+                        <div class="trainer-avatar"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><rect x="10" y="11" width="4" height="5"></rect><circle cx="12" cy="8" r="1"></circle></svg></div>
+                        <h3 class="trainer-name">Martin Ghambaryan</h3>
+                        <p class="trainer-title">Cyber Security Specialist | Penetration Tester</p>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-avatar"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg></div>
+                        <h3 class="trainer-name">Antranig Vartanian</h3>
+                        <p class="trainer-title">Information Security Specialist</p>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-avatar"><svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"></path><path d="M9 18h6"></path><path d="M10 12h4"></path><path d="M11 6h2a6 6 0 0 1 6 6v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-5a6 6 0 0 1 6-6z"></path><line x1="3" y1="10" x2="7" y2="10"></line><line x1="17" y1="10" x2="21" y2="10"></line><line x1="5" y1="14" x2="8" y2="14"></line><line x1="16" y1="14" x2="19" y2="14"></line></svg></div>
+                        <h3 class="trainer-name">Narek Jilavyan</h3>
+                        <p class="trainer-title">Cyber Security Specialist | Penetration Tester</p>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-avatar"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12h6"></path></svg></div>
+                        <h3 class="trainer-name">Mikael Mirijanyan</h3>
+                        <p class="trainer-title">Information Security Engineer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Student Success Stories</h2>
+                    <p>Hear from our graduates who've transformed their careers</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The course was informative and set me on the right path. I understood what I need to focus on and what is important for the field. The greatest support for me came from the instructor and the other students in the group.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Albert H. (OSCC certified)</div>
+                                <div class="testimonial-course">SEC-100: CyberCore - Security Essentials</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">We started the course from scratch, and the learning process was clear and accessible, without unnecessary difficulty. The instructor consistently provided support by sharing useful materials both during the lessons and beyond them. Even after completing the course, I retained access to the OSCC package. After finishing all the labs, I passed the exam and earned an international certification.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Samvel L. (OSCC certified)</div>
+                                <div class="testimonial-course">SEC-100: CyberCore - Security Essentials</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Launch Your <span class="highlight">Cybersecurity Career</span>?</h2>
+                    <p class="cta-subtitle">Join thousands of graduates who've transformed their careers with MIC Armenia x CyHub. Your first step starts here.</p>
+                    <div class="cta-buttons">
+                        <a href="#courses" class="btn-primary">Explore All Courses</a>
+                        <a href="javascript:void(0)" onclick="openAdvisorModal()" class="btn-secondary">Talk to an Advisor</a>
                     </div>
                 </div>
             </div>
@@ -1244,22 +1658,22 @@
                     
                     <div class="about-features">
                         <div class="feature-box">
-                            <div class="feature-icon">🎯</div>
+                            <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
                             <div class="feature-title">Practical Learning</div>
                             <div class="feature-description">Hands-on labs and real-world scenarios prepare you for actual security challenges</div>
                         </div>
                         <div class="feature-box">
-                            <div class="feature-icon">👨‍🏫</div>
+                            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
                             <div class="feature-title">Expert Instructors</div>
                             <div class="feature-description">Learn from professionals with extensive industry experience</div>
                         </div>
                         <div class="feature-box">
-                            <div class="feature-icon">🏆</div>
+                            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg></div>
                             <div class="feature-title">Industry Certifications</div>
                             <div class="feature-description">Prepare for globally recognized certifications like OSCP, Security+, and CySA+</div>
                         </div>
                         <div class="feature-box">
-                            <div class="feature-icon">🤝</div>
+                            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg></div>
                             <div class="feature-title">Career Support</div>
                             <div class="feature-description">Connect with our network of 35+ partner companies for career opportunities</div>
                         </div>
@@ -1276,24 +1690,24 @@
                     
                     <div class="contact-info">
                         <div class="contact-card">
-                            <div class="contact-icon">📧</div>
+                            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
                             <div class="contact-label">Email</div>
                             <div class="contact-value">
                                 <a href="mailto:mic@mic.am">mic@mic.am</a>
                             </div>
                         </div>
                         <div class="contact-card">
-                            <div class="contact-icon">📱</div>
+                            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
                             <div class="contact-label">Phone</div>
                             <div class="contact-value">
                                 <a href="tel:+37441545343">+374 41 545 343</a>
                             </div>
                         </div>
                         <div class="contact-card">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
                             <div class="contact-label">Location</div>
                             <div class="contact-value">
-                                105 Teryan str. 10th building,<br>Yerevan, Armenia
+                                Yerevan, Teryan st. 105,<br>NPUA 10th building, 6th floor
                             </div>
                         </div>
                     </div>
@@ -1304,7 +1718,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Microsoft Innovation Center Armenia. All rights reserved.</p>
+            <p>&copy; 2011-2026 Microsoft Innovation Center Armenia. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1322,67 +1736,6 @@
                 </div>
                 
                 <form id="registrationForm" onsubmit="handleSubmit(event)">
-                    <!-- 
-                    ============================================================
-                    GOOGLE SHEETS SETUP INSTRUCTIONS:
-                    ============================================================
-                    
-                    1. CREATE GOOGLE SHEET:
-                       - Go to https://sheets.google.com
-                       - Create a new sheet
-                       - Add headers in first row: Timestamp, First Name, Last Name, Email, Phone, Course Name, Price, Start Date
-                    
-                    2. OPEN APPS SCRIPT:
-                       - In your sheet: Extensions > Apps Script
-                       - Delete existing code
-                       - Paste the code from below
-                    
-                    3. DEPLOY:
-                       - Click Deploy > New deployment
-                       - Type: Web app
-                       - Execute as: Me
-                       - Who has access: Anyone
-                       - Click Deploy
-                       - Copy the web app URL
-                    
-                    4. UPDATE THIS FILE:
-                       - Replace SCRIPT_URL in handleSubmit function below with your web app URL
-                    
-                    ============================================================
-                    GOOGLE APPS SCRIPT CODE (paste in Apps Script editor):
-                    ============================================================
-                    
-                    function doPost(e) {
-                      try {
-                        var sheet = SpreadsheetApp.getActiveSheet();
-                        var data = JSON.parse(e.postData.contents);
-                        
-                        sheet.appendRow([
-                          new Date(),
-                          data.firstName,
-                          data.lastName,
-                          data.email,
-                          data.phone,
-                          data.courseName,
-                          data.coursePrice,
-                          data.courseStartDate
-                        ]);
-                        
-                        return ContentService.createTextOutput(JSON.stringify({
-                          'status': 'success',
-                          'message': 'Registration saved'
-                        })).setMimeType(ContentService.MimeType.JSON);
-                        
-                      } catch(error) {
-                        return ContentService.createTextOutput(JSON.stringify({
-                          'status': 'error',
-                          'message': error.toString()
-                        })).setMimeType(ContentService.MimeType.JSON);
-                      }
-                    }
-                    
-                    ============================================================
-                    -->
                     
                     <div class="form-group">
                         <label for="firstName">First Name *</label>
@@ -1414,135 +1767,107 @@
         </div>
     </div>
 
-    <script>
-        // Countdown timer functionality
-        function updateCountdowns() {
-            const startDate = new Date('2026-02-12');
-            
-            for (let i = 1; i <= 6; i++) {
-                const countdownElement = document.getElementById(`countdown-${i}`);
-                if (countdownElement) {
-                    const currentValue = parseInt(countdownElement.textContent);
-                    // Simulate countdown (in real app, calculate from actual dates)
-                    if (currentValue > 0) {
-                        // This is a static demo - in production, calculate actual days
-                        countdownElement.textContent = currentValue;
-                    }
-                }
-            }
-        }
 
-        function openModal(courseName, price, level, startDate) {
-            const modal = document.getElementById('registrationModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalSubtitle = document.getElementById('modalSubtitle');
-            const courseNameInput = document.getElementById('courseName');
-            const coursePriceInput = document.getElementById('coursePrice');
-            const courseStartDateInput = document.getElementById('courseStartDate');
-            
-            modalTitle.textContent = courseName;
-            modalSubtitle.textContent = `${level} • ${price} • Starts ${startDate}`;
-            courseNameInput.value = courseName;
-            coursePriceInput.value = price;
-            courseStartDateInput.value = startDate;
-            
+    <!-- Advisor Contact Modal -->
+    <div id="advisorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Talk to an Advisor</h3>
+                <p class="modal-subtitle">We'll contact you within 24 hours</p>
+                <button class="modal-close" onclick="closeAdvisorModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message" id="advisorSuccessMessage">
+                    ✓ Request submitted successfully! Our advisor will contact you soon.
+                </div>
+                
+                <form id="advisorForm" onsubmit="handleAdvisorSubmit(event)">
+                    <div class="form-group">
+                        <label for="advisorName">Full Name *</label>
+                        <input type="text" id="advisorName" name="advisorName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="advisorPhone">Phone Number *</label>
+                        <input type="tel" id="advisorPhone" name="advisorPhone" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Request Callback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // ============================================
+        // ADVISOR CONTACT FORM
+        // ============================================
+        const ADVISOR_SCRIPT_URL = 'YOUR_ADVISOR_GOOGLE_SCRIPT_URL_HERE';
+        // Replace with your Google Apps Script web app URL
+        
+        function openAdvisorModal() {
+            const modal = document.getElementById('advisorModal');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            const modal = document.getElementById('registrationModal');
+        function closeAdvisorModal() {
+            const modal = document.getElementById('advisorModal');
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Reset form and hide success message
-            document.getElementById('registrationForm').reset();
-            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('advisorForm').reset();
+            document.getElementById('advisorSuccessMessage').classList.remove('active');
         }
 
-        function handleSubmit(event) {
+        function handleAdvisorSubmit(event) {
             event.preventDefault();
             
-            // Get form data
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
             
-            // ============================================================
-            // Google Apps Script Web App URL
-            // ============================================================
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLqQyIAsYcmcOfmmj7BiUVv-oZHiPCkh6aITWiXBBLuzaBPQTW/exec';
-    
-            // Show loading state
             const submitBtn = event.target.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
             
-            // Send to Google Sheets
-            fetch(SCRIPT_URL, {
+            fetch(ADVISOR_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Important for Google Apps Script
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             })
             .then(() => {
-                // With no-cors mode, we assume success if no error is thrown
-                console.log('Registration submitted:', data);
+                console.log('Advisor request submitted:', data);
                 
-                // Show success message
-                document.getElementById('successMessage').classList.add('active');
-                
-                // Reset form
+                document.getElementById('advisorSuccessMessage').classList.add('active');
                 event.target.reset();
-                
-                // Reset button
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 
-                // Close modal after 3 seconds
                 setTimeout(() => {
-                    closeModal();
+                    closeAdvisorModal();
                 }, 3000);
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error submitting your registration. Please try again or contact us directly.');
-                
-                // Reset button
+                alert('There was an error. Please try again or contact us directly.');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             });
-            
-            // Alternative: If you want to test without Google Sheets first,
-            // uncomment this section and comment out the fetch above:
-            /*
-            console.log('Registration submitted:', data);
-            document.getElementById('successMessage').classList.add('active');
-            event.target.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            setTimeout(() => closeModal(), 3000);
-            */
         }
 
-        // Close modal when clicking outside
-        document.getElementById('registrationModal').addEventListener('click', function(e) {
+        // Close advisor modal when clicking outside
+        document.getElementById('advisorModal')?.addEventListener('click', function(e) {
             if (e.target === this) {
-                closeModal();
+                closeAdvisorModal();
             }
         });
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Initialize countdowns
-        updateCountdowns();
+        // ============================================
     </script>
 </body>
 </html>
