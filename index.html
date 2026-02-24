@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Training Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+     <!-- Meta Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '26046939738289330');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
+/></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <style>
         :root {
             --bg-primary: #0a0e1a;
@@ -1907,7 +1926,16 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLq
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
+ // Track modal opening with Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', {
+                    content_name: courseName,
+                    content_category: 'Course Registration',
+                    value: parseFloat(price.replace(/[^\d]/g, '')),
+                    currency: 'AMD'
+                });
+            }
+        }
         function closeModal() {
             const modal = document.getElementById('registrationModal');
             modal.classList.remove('active');
@@ -1939,6 +1967,15 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLq
             .then(() => {
                 console.log('Registration submitted:', data);
                 
+                // Track successful registration with Meta Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', {
+                        content_name: data.courseName,
+                        value: parseFloat(data.coursePrice.replace(/[^\d]/g, '')),
+                        currency: 'AMD'
+                    });
+                }
+                                
                 document.getElementById('successMessage').classList.add('active');
                 event.target.reset();
                 submitBtn.textContent = originalText;
@@ -2020,6 +2057,11 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLq
             .then(() => {
                 console.log('Advisor request submitted:', data);
                 
+                // Track advisor contact with Meta Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Contact');
+                }
+                              
                 document.getElementById('advisorSuccessMessage').classList.add('active');
                 event.target.reset();
                 submitBtn.textContent = originalText;
