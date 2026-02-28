@@ -523,6 +523,86 @@
                 font-size: 2.5rem;
             }
         }
+    /* Modals (copied style) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 9999;
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 1.25rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.modal-title { font-size: 1.25rem; font-weight: 800; }
+.modal-subtitle { color: var(--text-secondary); margin-top: 0.25rem; }
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body { padding: 1.25rem; }
+
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.35rem; color: var(--text-secondary); font-weight: 600; }
+.form-group input {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(17,24,39,0.6);
+  color: var(--text-primary);
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
+  color: white;
+}
+
+.success-message {
+  display: none;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: rgba(34,197,94,0.12);
+  color: #22c55e;
+  font-weight: 700;
+}
+.success-message.active { display: block; }
     </style>
 </head>
 <body>
@@ -723,10 +803,17 @@
                         <div class="price">$1,600</div>
                         <div class="early-bird">🎉 10% Early-Bird<br>Discount Until March 10</div>
                         
-                        <div class="cta-buttons">
-                            <a href="index.html#courses" class="btn-primary">Register Now</a>
-                            <a href="javascript:history.back()" class="btn-secondary">Talk to Advisor</a>
-                        </div>
+                     <div class="cta-buttons">
+  <a href="javascript:void(0)" class="btn-primary"
+     onclick="openModal('CPTIA - CREST Practitioner Threat Intelligence Analyst', '$1,600', 'Special Training', 'March 16-18, 2026')">
+    Register Now
+  </a>
+
+  <a href="javascript:void(0)" class="btn-secondary"
+     onclick="openAdvisorModal()">
+    Talk to Advisor
+  </a>
+</div>
 
                         <div class="warning-box">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
@@ -791,5 +878,176 @@
             });
         }
     </script>
+<!-- Registration Modal -->
+<div id="registrationModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle">Course Registration</h3>
+      <p class="modal-subtitle" id="modalSubtitle"></p>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="success-message" id="successMessage">
+        ✓ Registration submitted successfully! We'll contact you within 24 hours.
+      </div>
+
+      <form id="registrationForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <input type="hidden" id="courseName" name="courseName">
+        <input type="hidden" id="coursePrice" name="coursePrice">
+        <input type="hidden" id="courseStartDate" name="courseStartDate">
+
+        <button type="submit" class="btn-submit">Submit Registration</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Advisor Contact Modal -->
+<div id="advisorModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Talk to an Advisor</h3>
+      <p class="modal-subtitle">We'll contact you within 24 hours</p>
+      <button class="modal-close" onclick="closeAdvisorModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="success-message" id="advisorSuccessMessage">
+        ✓ Request submitted successfully! Our advisor will contact you soon.
+      </div>
+
+      <form id="advisorForm" onsubmit="handleAdvisorSubmit(event)">
+        <div class="form-group">
+          <label for="advisorName">Full Name *</label>
+          <input type="text" id="advisorName" name="advisorName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="advisorPhone">Phone Number *</label>
+          <input type="tel" id="advisorPhone" name="advisorPhone" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Request Callback</button>
+      </form>
+    </div>
+  </div>
+</div>
+    <script>
+  // === Registration Form ===
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLqQyIAsYcmcOfmmj7BiUVv-oZHiPCkh6aITWiXBBLuzaBPQTW/exec';
+
+  function openModal(courseName, price, level, startDate) {
+    const modal = document.getElementById('registrationModal');
+    document.getElementById('modalTitle').textContent = courseName;
+    document.getElementById('modalSubtitle').textContent = `${level} • ${price} • Starts ${startDate}`;
+
+    document.getElementById('courseName').value = courseName;
+    document.getElementById('coursePrice').value = price;
+    document.getElementById('courseStartDate').value = startDate;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('registrationModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    document.getElementById('registrationForm').reset();
+    document.getElementById('successMessage').classList.remove('active');
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    // If you don't have a Google Script endpoint yet, comment this fetch and handle later
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('successMessage').classList.add('active');
+      event.target.reset();
+      setTimeout(closeModal, 2500);
+    })
+    .catch(() => alert('Error submitting registration. Please try again.'));
+  }
+
+  // === Advisor Form ===
+  const ADVISOR_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1B-58zxfePPC80z4i-PXw7VRsqIJ8YurE04pO5-Vrb83br20Cex4jiyMUXA5_2Cwb/exec';
+
+  function openAdvisorModal() {
+    const modal = document.getElementById('advisorModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAdvisorModal() {
+    const modal = document.getElementById('advisorModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    document.getElementById('advisorForm').reset();
+    document.getElementById('advisorSuccessMessage').classList.remove('active');
+  }
+
+  function handleAdvisorSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    fetch(ADVISOR_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('advisorSuccessMessage').classList.add('active');
+      event.target.reset();
+      setTimeout(closeAdvisorModal, 2500);
+    })
+    .catch(() => alert('Error submitting request. Please try again.'));
+  }
+
+  // Close modals on overlay click
+  document.getElementById('registrationModal')?.addEventListener('click', function(e){
+    if (e.target === this) closeModal();
+  });
+  document.getElementById('advisorModal')?.addEventListener('click', function(e){
+    if (e.target === this) closeAdvisorModal();
+  });
+
+  // Escape key closes modals
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    if (document.getElementById('registrationModal')?.classList.contains('active')) closeModal();
+    if (document.getElementById('advisorModal')?.classList.contains('active')) closeAdvisorModal();
+  });
+</script>
 </body>
 </html>
