@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPTIA - CREST Practitioner Threat Intelligence Analyst | MIC Armenia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '26046939738289330');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --accent-cyan: #00ffc6;
+            --accent-blue: #0088ff;
+            --accent-purple: #8b5cf6;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --border: rgba(0, 255, 198, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 14, 26, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 198, 0.1);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(0, 136, 255, 0.05));
+            border-bottom: 2px solid var(--accent-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(139, 92, 246, 0.03) 48%, rgba(139, 92, 246, 0.03) 52%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(139, 92, 246, 0.03) 48%, rgba(139, 92, 246, 0.03) 52%, transparent 52%);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .course-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
+            color: white;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .meta-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-purple);
+        }
+
+        .meta-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .meta-text {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .text-block {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.05);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+        }
+
+        ul.check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.check-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        ul.check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        ul.bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.bullet-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        ul.bullet-list li::before {
+            content: '▪️';
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+            font-size: 1.2rem;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .info-card h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(0, 136, 255, 0.1));
+            border: 2px solid var(--accent-purple);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+        }
+
+        .early-bird {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 1.25rem 2rem;
+            background: transparent;
+            color: var(--accent-purple);
+            border: 2px solid var(--accent-purple);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .quick-facts {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-facts h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .fact-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .fact-item:last-child {
+            border-bottom: none;
+        }
+
+        .fact-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .fact-value {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .warning-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(251, 146, 60, 0.1);
+            border-left: 4px solid #fb923c;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .warning-box svg {
+            width: 24px;
+            height: 24px;
+            color: #fb923c;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .warning-box p {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 4rem;
+            background: linear-gradient(135deg, rgba(10, 14, 26, 0.95), rgba(26, 35, 50, 0.95));
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 198, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-meta {
+                gap: 1rem;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    /* Modals (copied style) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 9999;
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 1.25rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.modal-title { font-size: 1.25rem; font-weight: 800; }
+.modal-subtitle { color: var(--text-secondary); margin-top: 0.25rem; }
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body { padding: 1.25rem; }
+
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.35rem; color: var(--text-secondary); font-weight: 600; }
+.form-group input {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(17,24,39,0.6);
+  color: var(--text-primary);
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
+  color: white;
+}
+
+.success-message {
+  display: none;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: rgba(34,197,94,0.12);
+  color: #22c55e;
+  font-weight: 700;
+}
+.success-message.active { display: block; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">MIC Armenia × CyHub</a>
+                <a href="index.html#courses" class="back-btn">← Back to Courses</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="course-badge"> Special Training Course</span>
+                <h1>CPTIA - CREST Practitioner Threat Intelligence Analyst</h1>
+                <p class="hero-subtitle">
+                    Internationally aligned 3-day intensive course delivered in partnership with GITAC, a CREST-accredited cybersecurity organization
+                </p>
+                
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
+                        <span class="meta-text">March 16-18, 2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <span class="meta-text">Yerevan, Armenia</span>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <span class="meta-text">3-Day Intensive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2 class="section-title">About This Training</h2>
+                        <p class="text-block">
+                            In partnership with GITAC (a CREST-accredited organization), Microsoft Innovation Center Armenia and CyHub Armenia are hosting the CPTIA - CREST Practitioner Threat Intelligence Analyst training from March 16-18, 2026.
+                        </p>
+                        <p class="text-block">
+                            This 3-day intensive course provides internationally aligned threat intelligence analysis skills within the CREST framework, delivered by Giorgi Gurgenidze, Executive Cybersecurity Advisor and CISSP with over 15 years of experience across Critical Information Infrastructure (CII) environments.
+                        </p>
+                        <p class="text-block">
+                            The CPTIA - CREST Practitioner Threat Intelligence Analyst training in Yerevan is delivered in partnership with GITAC, a CREST-accredited cybersecurity organization supporting banks and critical infrastructure entities in strengthening cyber resilience.
+                        </p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">About CREST</h2>
+                        <p class="text-block">
+                            CREST (Council of Registered Ethical Security Testers) is an international not-for-profit, membership organization representing the technical information security industry. CREST provides internationally recognized accreditation for organizations and individuals providing penetration testing, cyber incident response, and threat intelligence services.
+                        </p>
+                        <div class="highlight-box">
+                            <h3>CREST's Mission</h3>
+                            <p class="text-block">
+                                CREST works to set and maintain professional standards, provide accreditation to companies and individuals who demonstrate competence and capability in specified areas, and share knowledge and best practices across the information security sector.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">What You'll Learn</h2>
+                        
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <h4>Threat Intelligence Fundamentals</h4>
+                                <p>Core concepts, methodologies, and frameworks used in professional threat intelligence analysis</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Intelligence Collection</h4>
+                                <p>Techniques for gathering intelligence from multiple sources including OSINT, dark web, and threat feeds</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Analysis & Assessment</h4>
+                                <p>Analytical methods for processing, evaluating, and contextualizing threat data</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Intelligence Reporting</h4>
+                                <p>Creating actionable intelligence reports tailored to different stakeholder audiences</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Threat Actor Profiling</h4>
+                                <p>Understanding adversary TTPs (Tactics, Techniques, and Procedures) and attribution</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Cyber Kill Chain Analysis</h4>
+                                <p>Mapping threats across attack lifecycle stages for strategic defense planning</p>
+                            </div>
+                        </div>
+
+                        <h3 class="section-subtitle">Hands-on Lab Components</h3>
+                        <ul class="check-list">
+                            <li>Practical exercises using industry-standard threat intelligence platforms</li>
+                            <li>Real-world case study analysis and threat assessment scenarios</li>
+                            <li>Intelligence report writing workshops with expert feedback</li>
+                            <li>Threat hunting simulations in controlled environments</li>
+                            <li>Collaborative intelligence sharing exercises</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Who Should Attend</h2>
+                        <p class="text-block">
+                            This course is designed for cybersecurity professionals who want to develop or formalize their threat intelligence capabilities:
+                        </p>
+                        <ul class="bullet-list">
+                            <li>SOC Analysts looking to specialize in threat intelligence</li>
+                            <li>Cybersecurity Analysts seeking to enhance their analytical skills</li>
+                            <li>Threat Intelligence Specialists wanting CREST certification</li>
+                            <li>CERT / CSIRT Team members responsible for threat monitoring</li>
+                            <li>Penetration Testers and Red Teamers expanding their skill set</li>
+                            <li>Security architects and managers overseeing threat intelligence programs</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Prerequisites</h2>
+                        <p class="text-block">
+                            While there are no strict prerequisites, candidates should have:
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Basic understanding of cybersecurity concepts and terminology</li>
+                            <li>Familiarity with common cyber threats and attack vectors</li>
+                            <li>Experience working in a security operations or analysis role (recommended)</li>
+                            <li>Strong analytical and critical thinking skills</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Course Instructor</h2>
+                        <div class="highlight-box">
+                            <h3>Giorgi Gurgenidze - Executive Cybersecurity Advisor, CISSP</h3>
+                            <p class="text-block">
+                                With over 15 years of hands-on experience across Critical Information Infrastructure (CII) environments, Giorgi brings deep expertise in threat intelligence, incident response, and security operations. As an Executive Cybersecurity Advisor, he has helped numerous organizations build robust threat intelligence capabilities and strengthen their cyber resilience programs.
+                            </p>
+                            <p class="text-block">
+                                His real-world experience spans financial services, telecommunications, and government sectors, providing participants with practical insights that go beyond theoretical knowledge.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Certification & Exam</h2>
+                        <p class="text-block">
+                            Upon successful completion of this training program and passing the CPTIA examination, participants will receive the internationally recognized CREST Practitioner Threat Intelligence Analyst certification.
+                        </p>
+                        
+                        <h3 class="section-subtitle">Exam Details</h3>
+                        <ul class="check-list">
+                            <li>CPTIA exam voucher (Pearson VUE) included in course fee</li>
+                            <li>Multiple-choice format testing knowledge and application</li>
+                            <li>Administered at authorized Pearson VUE testing centers</li>
+                            <li>Valid globally and recognized by employers worldwide</li>
+                            <li>Demonstrates competency in threat intelligence analysis to CREST standards</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <h3>Career Impact</h3>
+                            <p class="text-block">
+                                The CPTIA certification is highly valued by employers in both public and private sectors, particularly in regulated industries such as finance, healthcare, and critical infrastructure. It demonstrates your capability to work as a professional threat intelligence analyst according to internationally accepted standards.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Why Train in Yerevan</h2>
+                        <p class="text-block">
+                            Armenia is rapidly emerging as a regional hub for technology and cybersecurity excellence. This training provides a unique opportunity to:
+                        </p>
+                        <ul class="check-list">
+                            <li>Learn from international CREST-accredited instructors in your region</li>
+                            <li>Network with cybersecurity professionals from across the Caucasus</li>
+                            <li>Gain globally recognized certification without international travel</li>
+                            <li>Connect with GITAC's network of critical infrastructure organizations</li>
+                            <li>Access ongoing professional development opportunities locally</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="price-card">
+                        <div class="price-label">Course Fee</div>
+                        <div class="price">$1,600</div>
+                        <div class="early-bird">🎉 10% Early-Bird<br>Discount Until March 10</div>
+                        
+                     <div class="cta-buttons">
+  <a href="javascript:void(0)" class="btn-primary"
+     onclick="openModal('CPTIA - CREST Practitioner Threat Intelligence Analyst', '$1,600', 'Special Training', 'March 16-18, 2026')">
+    Register Now
+  </a>
+
+  <a href="javascript:void(0)" class="btn-secondary"
+     onclick="openAdvisorModal()">
+    Talk to Advisor
+  </a>
+</div>
+
+                        <div class="warning-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <p>Limited seats available. Secure your spot early!</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-facts">
+                        <h3>Quick Facts</h3>
+                        <div class="fact-item">
+                            <div class="fact-label">Duration</div>
+                            <div class="fact-value">3 Days (Intensive)</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Dates</div>
+                            <div class="fact-value">March 16-18, 2026</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Location</div>
+                            <div class="fact-value">Yerevan, Armenia</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Language</div>
+                            <div class="fact-value">English</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Format</div>
+                            <div class="fact-value">In-Person Training</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Certification</div>
+                            <div class="fact-value">CPTIA (CREST)</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Exam Voucher</div>
+                            <div class="fact-value">Included</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Partner</div>
+                            <div class="fact-value">GITAC (CREST-accredited)</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2011-2026 Microsoft Innovation Center Armenia. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Track page view
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'ViewContent', {
+                content_name: 'CPTIA Course Details',
+                content_category: 'Special Training',
+                currency: 'USD',
+                value: 1600
+            });
+        }
+    </script>
+<!-- Registration Modal -->
+<div id="registrationModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle">Course Registration</h3>
+      <p class="modal-subtitle" id="modalSubtitle"></p>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="success-message" id="successMessage">
+        ✓ Registration submitted successfully! We'll contact you within 24 hours.
+      </div>
+
+      <form id="registrationForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <input type="hidden" id="courseName" name="courseName">
+        <input type="hidden" id="coursePrice" name="coursePrice">
+        <input type="hidden" id="courseStartDate" name="courseStartDate">
+
+        <button type="submit" class="btn-submit">Submit Registration</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Advisor Contact Modal -->
+<div id="advisorModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Talk to an Advisor</h3>
+      <p class="modal-subtitle">We'll contact you within 24 hours</p>
+      <button class="modal-close" onclick="closeAdvisorModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="success-message" id="advisorSuccessMessage">
+        ✓ Request submitted successfully! Our advisor will contact you soon.
+      </div>
+
+      <form id="advisorForm" onsubmit="handleAdvisorSubmit(event)">
+        <div class="form-group">
+          <label for="advisorName">Full Name *</label>
+          <input type="text" id="advisorName" name="advisorName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="advisorPhone">Phone Number *</label>
+          <input type="tel" id="advisorPhone" name="advisorPhone" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Request Callback</button>
+      </form>
+    </div>
+  </div>
+</div>
+    <script>
+  // === Registration Form ===
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLqQyIAsYcmcOfmmj7BiUVv-oZHiPCkh6aITWiXBBLuzaBPQTW/exec';
+
+  function openModal(courseName, price, level, startDate) {
+    const modal = document.getElementById('registrationModal');
+    document.getElementById('modalTitle').textContent = courseName;
+    document.getElementById('modalSubtitle').textContent = `${level} • ${price} • Starts ${startDate}`;
+
+    document.getElementById('courseName').value = courseName;
+    document.getElementById('coursePrice').value = price;
+    document.getElementById('courseStartDate').value = startDate;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('registrationModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    document.getElementById('registrationForm').reset();
+    document.getElementById('successMessage').classList.remove('active');
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    // If you don't have a Google Script endpoint yet, comment this fetch and handle later
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('successMessage').classList.add('active');
+      event.target.reset();
+      setTimeout(closeModal, 2500);
+    })
+    .catch(() => alert('Error submitting registration. Please try again.'));
+  }
+
+  // === Advisor Form ===
+  const ADVISOR_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1B-58zxfePPC80z4i-PXw7VRsqIJ8YurE04pO5-Vrb83br20Cex4jiyMUXA5_2Cwb/exec';
+
+  function openAdvisorModal() {
+    const modal = document.getElementById('advisorModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAdvisorModal() {
+    const modal = document.getElementById('advisorModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    document.getElementById('advisorForm').reset();
+    document.getElementById('advisorSuccessMessage').classList.remove('active');
+  }
+
+  function handleAdvisorSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    fetch(ADVISOR_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('advisorSuccessMessage').classList.add('active');
+      event.target.reset();
+      setTimeout(closeAdvisorModal, 2500);
+    })
+    .catch(() => alert('Error submitting request. Please try again.'));
+  }
+
+  // Close modals on overlay click
+  document.getElementById('registrationModal')?.addEventListener('click', function(e){
+    if (e.target === this) closeModal();
+  });
+  document.getElementById('advisorModal')?.addEventListener('click', function(e){
+    if (e.target === this) closeAdvisorModal();
+  });
+
+  // Escape key closes modals
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    if (document.getElementById('registrationModal')?.classList.contains('active')) closeModal();
+    if (document.getElementById('advisorModal')?.classList.contains('active')) closeAdvisorModal();
+  });
+</script>
+</body>
+</html>
