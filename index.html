@@ -1248,9 +1248,9 @@
             background: var(--bg-card);
             border: 2px solid var(--accent-purple);
             border-radius: 20px;
-            overflow: hidden;
             box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .special-course-card:hover {
@@ -1593,7 +1593,7 @@
         <section class="special-course-section">
             <div class="special-course-container">
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <span class="special-badge"> Special Training Course</span>
+                    <span class="special-badge">🌟 Special Training Event</span>
                 </div>
 
                 <div class="special-course-card">
@@ -1660,9 +1660,9 @@
                                 <div class="special-price">600,000 AMD</div>
                                 <div class="special-early-bird">🎉 10% Early-Bird Discount Until March 10</div>
                                 
-                                <div class="special-buttons">
-                                    <a href="cptia-course-details.html" class="btn-special-primary">View Course Details</a>
-                                    <a href="javascript:void(0)" onclick="openAdvisorModal()" class="btn-special-secondary">Talk to an Advisor</a>
+                                <div class="special-buttons" style="position: relative; z-index: 9999;">
+                                    <a href="cptia-course-details.html" class="btn-special-primary" style="position: relative; z-index: 9999; pointer-events: auto; cursor: pointer;">View Course Details</a>
+                                    <a href="javascript:void(0)" onclick="openAdvisorModal()" class="btn-special-secondary" style="position: relative; z-index: 9999; pointer-events: auto; cursor: pointer;">Talk to an Advisor</a>
                                 </div>
 
                                 <div class="special-warning">
