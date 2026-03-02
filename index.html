@@ -1264,6 +1264,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             padding: 3rem;
+            position: relative;
+            z-index: 10;
         }
 
         .special-course-left h2 {
@@ -1365,8 +1367,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
-            z-index: 3;
         }
 
         .who-should-attend {
@@ -1411,8 +1411,8 @@
             border-radius: 12px;
             padding: 2rem;
             text-align: center;
-            position: relative;
-            z-index: 5;
+            position: relative !important;
+            z-index: 100 !important;
         }
 
         .special-price-label {
@@ -1446,8 +1446,8 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            position: relative;
-            z-index: 10;
+            position: relative !important;
+            z-index: 1000 !important;
         }
 
         .btn-special-primary {
@@ -1458,16 +1458,16 @@
             border-radius: 8px;
             font-weight: 700;
             font-size: 1rem;
-            cursor: pointer;
+            cursor: pointer !important;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
             display: inline-block;
             text-align: center;
-            position: relative;
-            z-index: 10;
-            pointer-events: auto;
+            position: relative !important;
+            z-index: 1000 !important;
+            pointer-events: auto !important;
         }
 
         .btn-special-primary:hover {
@@ -1483,16 +1483,16 @@
             border-radius: 8px;
             font-weight: 700;
             font-size: 1rem;
-            cursor: pointer;
+            cursor: pointer !important;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
             display: inline-block;
             text-align: center;
-            position: relative;
-            z-index: 10;
-            pointer-events: auto;
+            position: relative !important;
+            z-index: 1000 !important;
+            pointer-events: auto !important;
         }
 
         .btn-special-secondary:hover {
@@ -1657,7 +1657,7 @@
 
                             <div class="special-price-box">
                                 <div class="special-price-label">Course Fee</div>
-                                <div class="special-price">$1,600</div>
+                                <div class="special-price">600,000 AMD</div>
                                 <div class="special-early-bird">🎉 10% Early-Bird Discount Until March 10</div>
                                 
                                 <div class="special-buttons">
