@@ -1,42 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- BUTTON CLICKABILITY FIX -->
-    <style>
-        /* Override all z-index issues - Force buttons to be clickable */
-        .special-buttons,
-        .special-buttons > *,
-        a.btn-special-primary,
-        a.btn-special-secondary,
-        button.btn-special-secondary {
-            pointer-events: auto !important;
-            cursor: pointer !important;
-            position: relative !important;
-            z-index: 999999 !important;
-        }
-        
-        .special-price-box {
-            position: relative !important;
-            z-index: 99999 !important;
-        }
-        
-        .special-course-card {
-            overflow: visible !important;
-        }
-    </style>
-    
-    <script>
-        // Force buttons to be clickable after page load
-        window.addEventListener('DOMContentLoaded', function() {
-            const specialButtons = document.querySelectorAll('.btn-special-primary, .btn-special-secondary');
-            specialButtons.forEach(function(btn) {
-                btn.style.pointerEvents = 'auto';
-                btn.style.cursor = 'pointer';
-                btn.style.zIndex = '999999';
-                btn.style.position = 'relative';
-            });
-        });
-    </script>
-</head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Training Academy</title>
@@ -1629,7 +1593,7 @@
         <section class="special-course-section">
             <div class="special-course-container">
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <span class="special-badge"> Special Training Course</span>
+                    <span class="special-badge">🌟 Special Training Event</span>
                 </div>
 
                 <div class="special-course-card">
@@ -1696,10 +1660,10 @@
                                 <div class="special-price">600,000 AMD</div>
                                 <div class="special-early-bird">🎉 10% Early-Bird Discount Until March 10</div>
                                 
-                               <div class="special-buttons">
-    <a href="cptia-course-details.html" class="btn-special-primary" style="pointer-events:auto;cursor:pointer;z-index:999999;position:relative;">View Course Details</a>
-    <button onclick="openAdvisorModal()" type="button" class="btn-special-secondary" style="pointer-events:auto;cursor:pointer;z-index:999999;position:relative;width:100%;">Talk to an Advisor</button>
-</div>
+                                <div class="special-buttons" style="position: relative; z-index: 9999;">
+                                    <a href="cptia-course-details.html" class="btn-special-primary" style="position: relative; z-index: 9999; pointer-events: auto; cursor: pointer;">View Course Details</a>
+                                    <button type="button" onclick="openAdvisorModal()" class="btn-special-secondary" style="position: relative; z-index: 9999; pointer-events: auto; cursor: pointer; width: 100%;">Talk to an Advisor</button>
+                                </div>
 
                                 <div class="special-warning">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
@@ -2482,3 +2446,51 @@
         }
 
         // Close advisor modal when clicking ou
+
+        // Close advisor modal when clicking outside
+        document.getElementById('advisorModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAdvisorModal();
+            }
+        });
+
+        // ============================================
+        // COMPREHENSIVE BUTTON CLICKABILITY FIX
+        // ============================================
+        
+        // Remove any overlays that might block the buttons
+        window.addEventListener('load', function() {
+            // Force special buttons to be clickable
+            setTimeout(function() {
+                const specialButtons = document.querySelectorAll('.btn-special-primary, .btn-special-secondary');
+                specialButtons.forEach(function(btn) {
+                    btn.style.position = 'relative';
+                    btn.style.zIndex = '9999999';
+                    btn.style.pointerEvents = 'auto';
+                    btn.style.cursor = 'pointer';
+                    
+                    // Ensure click events work - reattach event listener
+                    if (btn.classList.contains('btn-special-secondary')) {
+                        btn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log('Talk to Advisor button clicked');
+                            openAdvisorModal();
+                        });
+                    }
+                });
+                
+                // Make sure special-buttons container doesn't block
+                const buttonContainers = document.querySelectorAll('.special-buttons');
+                buttonContainers.forEach(function(container) {
+                    container.style.position = 'relative';
+                    container.style.zIndex = '9999999';
+                    container.style.pointerEvents = 'auto';
+                });
+                
+                console.log('Button clickability fix applied - buttons should now work!');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
