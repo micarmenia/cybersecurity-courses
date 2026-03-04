@@ -709,13 +709,13 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="course-badge">Special Training Course</span>
+                <span class="course-badge">🌟 Special Training Course</span>
                 <h1>CPTIA - CREST Practitioner Threat Intelligence Analyst</h1>
                 <p class="hero-subtitle">
                     Internationally aligned 3-day intensive course delivered in partnership with GITAC, a CREST-accredited cybersecurity organization
                 </p>
                 
-                <div class="hero-meta">  
+                <div class="hero-meta">
                     <div class="meta-item">
                         <div class="meta-icon">
                             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -966,6 +966,12 @@
                         <input type="tel" id="phone" name="phone" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="promoCode">Promo Code (Optional)</label>
+                        <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
+                        <div id="promoMessage" style="margin-top: 0.5rem; font-size: 0.9rem; display: none;"></div>
+                    </div>
+
                     <input type="hidden" id="courseName" name="courseName" value="CPTIA - CREST Practitioner Threat Intelligence Analyst">
                     <input type="hidden" id="coursePrice" name="coursePrice" value="600,000 AMD">
                     <input type="hidden" id="courseStartDate" name="courseStartDate" value="March 16-18, 2026">
@@ -1058,6 +1064,28 @@
             
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
+            
+            // Validate promo code if provided
+            const promoCode = data.promoCode ? data.promoCode.trim().toUpperCase() : '';
+            const promoMessage = document.getElementById('promoMessage');
+            
+            if (promoCode && promoCode !== 'CYHUBFRIEND') {
+                // Invalid promo code
+                promoMessage.textContent = '❌ Invalid promo code. Please check and try again.';
+                promoMessage.style.color = '#ef4444';
+                promoMessage.style.display = 'block';
+                return; // Stop form submission
+            }
+            
+            if (promoCode === 'CYHUBFRIEND') {
+                // Valid promo code
+                promoMessage.textContent = '✓ Valid promo code applied!';
+                promoMessage.style.color = '#22c55e';
+                promoMessage.style.display = 'block';
+                data.promoCode = 'CYHUBFRIEND'; // Store validated code
+            } else {
+                data.promoCode = 'NONE'; // No promo code provided
+            }
             
             const submitBtn = event.target.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
