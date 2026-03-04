@@ -1658,7 +1658,7 @@
                             <div class="special-price-box">
                                 <div class="special-price-label">Course Fee</div>
                                 <div class="special-price">600,000 AMD</div>
-                                <div class="special-early-bird">🎉 15% Early-Bird Discount Until March 10</div>
+                                <div class="special-early-bird">🎉 10% Early-Bird Discount Until March 10</div>
                                 
                                 <div class="special-buttons" style="position: relative; z-index: 9999;">
                                     <a href="cptia-course-details.html" class="btn-special-primary" style="position: relative; z-index: 9999; pointer-events: auto; cursor: pointer;">View Course Details</a>
@@ -2279,7 +2279,7 @@
         // ============================================
         // COURSE REGISTRATION FORM
         // ============================================
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbybbwlE5CSMfpIMq8UUDbBhdp9c02SARfRKxe9wKPC6djE_1cJZJIs7fTpoN13zRCzR/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLqQyIAsYcmcOfmmj7BiUVv-oZHiPCkh6aITWiXBBLuzaBPQTW/exec';
 
         function openModal(courseName, price, level, startDate) {
             const modal = document.getElementById('registrationModal');
@@ -2321,15 +2321,27 @@
         function handleSubmit(event) {
             event.preventDefault();
             
+            console.log('🚀 handleSubmit function called');
+            
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
+            
+            console.log('📋 FormData entries:');
+            for (let [key, value] of formData.entries()) {
+                console.log(`  ${key}: ${value}`);
+            }
             
             // Validate promo code if provided
             const promoCode = data.promoCode ? data.promoCode.trim().toUpperCase() : '';
             const promoMessage = document.getElementById('promoMessage');
             
+            console.log('🎫 Promo code processing:');
+            console.log('  Raw value:', data.promoCode);
+            console.log('  Trimmed/Uppercase:', promoCode);
+            
             if (promoCode && promoCode !== 'CYHUBFRIEND') {
                 // Invalid promo code
+                console.log('❌ Invalid promo code entered');
                 promoMessage.textContent = '❌ Invalid promo code. Please check and try again.';
                 promoMessage.style.color = '#ef4444';
                 promoMessage.style.display = 'block';
@@ -2338,13 +2350,22 @@
             
             if (promoCode === 'CYHUBFRIEND') {
                 // Valid promo code
+                console.log('✅ Valid promo code: CYHUBFRIEND');
                 promoMessage.textContent = '✓ Valid promo code applied!';
                 promoMessage.style.color = '#22c55e';
                 promoMessage.style.display = 'block';
                 data.promoCode = 'CYHUBFRIEND'; // Store validated code
             } else {
+                console.log('ℹ️ No promo code entered');
                 data.promoCode = 'NONE'; // No promo code provided
             }
+            
+            // DEBUG: Log the data being sent
+            console.log('=== REGISTRATION DATA BEING SENT ===');
+            console.log('Data object:', data);
+            console.log('Promo Code value:', data.promoCode);
+            console.log('JSON being sent:', JSON.stringify(data));
+            console.log('====================================');
             
             const submitBtn = event.target.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
@@ -2479,6 +2500,30 @@
         document.getElementById('advisorModal')?.addEventListener('click', function(e) {
             if (e.target === this) {
                 closeAdvisorModal();
+            }
+        });
+
+        // DEBUG: Monitor promo code field
+        window.addEventListener('load', function() {
+            const promoInput = document.getElementById('promoCode');
+            if (promoInput) {
+                console.log('✓ Promo code field found');
+                promoInput.addEventListener('input', function(e) {
+                    console.log('Promo code typed:', e.target.value);
+                });
+            } else {
+                console.error('✗ Promo code field NOT found!');
+            }
+            
+            // Monitor form submission
+            const regForm = document.getElementById('registrationForm');
+            if (regForm) {
+                console.log('✓ Registration form found');
+                regForm.addEventListener('submit', function(e) {
+                    console.log('📝 Form submit event triggered!');
+                });
+            } else {
+                console.error('✗ Registration form NOT found!');
             }
         });
 
