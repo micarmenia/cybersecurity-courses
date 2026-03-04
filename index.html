@@ -1593,7 +1593,7 @@
         <section class="special-course-section">
             <div class="special-course-container">
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <span class="special-badge"> Special Training Course</span>
+                    <span class="special-badge">🌟 Special Training Course</span>
                 </div>
 
                 <div class="special-course-card">
@@ -2229,6 +2229,12 @@
                         <input type="tel" id="phone" name="phone" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="promoCode">Promo Code (Optional)</label>
+                        <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
+                        <div id="promoMessage" style="margin-top: 0.5rem; font-size: 0.9rem; display: none;"></div>
+                    </div>
+
                     <input type="hidden" id="courseName" name="courseName">
                     <input type="hidden" id="coursePrice" name="coursePrice">
                     <input type="hidden" id="courseStartDate" name="courseStartDate">
@@ -2317,6 +2323,28 @@
             
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
+            
+            // Validate promo code if provided
+            const promoCode = data.promoCode ? data.promoCode.trim().toUpperCase() : '';
+            const promoMessage = document.getElementById('promoMessage');
+            
+            if (promoCode && promoCode !== 'CYHUBFRIEND') {
+                // Invalid promo code
+                promoMessage.textContent = '❌ Invalid promo code. Please check and try again.';
+                promoMessage.style.color = '#ef4444';
+                promoMessage.style.display = 'block';
+                return; // Stop form submission
+            }
+            
+            if (promoCode === 'CYHUBFRIEND') {
+                // Valid promo code
+                promoMessage.textContent = '✓ Valid promo code applied!';
+                promoMessage.style.color = '#22c55e';
+                promoMessage.style.display = 'block';
+                data.promoCode = 'CYHUBFRIEND'; // Store validated code
+            } else {
+                data.promoCode = 'NONE'; // No promo code provided
+            }
             
             const submitBtn = event.target.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
