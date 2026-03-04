@@ -1030,8 +1030,8 @@
         }
 
         // Google Sheets URLs
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbybbwlE5CSMfpIMq8UUDbBhdp9c02SARfRKxe9wKPC6djE_1cJZJIs7fTpoN13zRCzR/exec';
-        const ADVISOR_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1B-58zxfePPC80z4i-PXw7VRsqIJ8YurE04pO5-Vrb83br20Cex4jiyMUXA5_2Cwb/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrK5gUrlWlXl7k22JLqQyIAsYcmcOfmmj7BiUVv-oZHiPCkh6aITWiXBBLuzaBPQTW/exec';
+        const ADVISOR_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbybbwlE5CSMfpIMq8UUDbBhdp9c02SARfRKxe9wKPC6djE_1cJZJIs7fTpoN13zRCzR/exec';
 
         // Registration Modal Functions
         function openModal() {
@@ -1086,6 +1086,13 @@
             } else {
                 data.promoCode = 'NONE'; // No promo code provided
             }
+            
+            // DEBUG: Log the data being sent
+            console.log('=== REGISTRATION DATA BEING SENT ===');
+            console.log('Data object:', data);
+            console.log('Promo Code value:', data.promoCode);
+            console.log('JSON being sent:', JSON.stringify(data));
+            console.log('====================================');
             
             const submitBtn = event.target.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
