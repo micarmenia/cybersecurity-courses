@@ -1159,6 +1159,40 @@ src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
             }
         }
     </style>
+    <style>
+        /* FORCE BUTTON CLICKABILITY - HIGHEST PRIORITY */
+        .special-buttons,
+        .special-buttons *,
+        .btn-special-primary,
+        .btn-special-secondary {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+            position: relative !important;
+            z-index: 999999 !important;
+        }
+        
+        .special-price-box {
+            position: relative !important;
+            z-index: 99999 !important;
+        }
+        
+        .special-course-right {
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Force buttons to be clickable
+            const buttons = document.querySelectorAll(".btn-special-primary, .btn-special-secondary");
+            buttons.forEach(btn => {
+                btn.style.pointerEvents = "auto";
+                btn.style.cursor = "pointer";
+                btn.style.zIndex = "999999";
+                btn.style.position = "relative";
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="orb orb-1"></div>
@@ -2046,3 +2080,40 @@ src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             });
+        }
+
+        // Close modals when clicking outside
+        document.getElementById('registrationModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('advisorModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAdvisorModal();
+            }
+        });
+
+        // ============================================
+        // COMPREHENSIVE BUTTON CLICKABILITY FIX
+        // ============================================
+        
+        // Remove any overlays that might block the buttons
+        window.addEventListener('load', function() {
+            // Force all register buttons to be clickable
+            setTimeout(function() {
+                const registerButtons = document.querySelectorAll('.btn-register, .btn-contact-advisor');
+                registerButtons.forEach(function(btn) {
+                    btn.style.position = 'relative';
+                    btn.style.zIndex = '9999999';
+                    btn.style.pointerEvents = 'auto';
+                    btn.style.cursor = 'pointer';
+                });
+                
+                console.log('Button clickability fix applied - buttons should now work!');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
