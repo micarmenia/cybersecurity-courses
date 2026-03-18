@@ -1820,6 +1820,11 @@ src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
                         <input type="tel" id="phone" name="phone" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="promoCode">Պրոմո կոդ (ընտրովի)</label>
+                        <input type="text" id="promoCode" name="promoCode" placeholder="Մուտքագրեք պրոմո կոդը">
+                    </div>
+
                     <input type="hidden" id="courseName" name="courseName">
                     <input type="hidden" id="coursePrice" name="coursePrice">
                     <input type="hidden" id="courseStartDate" name="courseStartDate">
@@ -1906,11 +1911,22 @@ src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
             document.getElementById('successMessage').classList.remove('active');
         }
 
-        function handleSubmit(event) {
+       function handleSubmit(event) {
             event.preventDefault();
             
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
+            
+            // Accept any promo code without validation
+            const promoCode = data.promoCode ? data.promoCode.trim() : '';
+            
+            if (promoCode) {
+                // Store whatever promo code was entered
+                data.promoCode = promoCode;
+            } else {
+                // No promo code provided
+                data.promoCode = 'NONE';
+            }
             
             const submitBtn = event.target.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
