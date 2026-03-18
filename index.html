@@ -2331,33 +2331,19 @@
                 console.log(`  ${key}: ${value}`);
             }
             
-            // Validate promo code if provided
-            const promoCode = data.promoCode ? data.promoCode.trim().toUpperCase() : '';
-            const promoMessage = document.getElementById('promoMessage');
+          // Accept any promo code without validation
+            const promoCode = data.promoCode ? data.promoCode.trim() : '';
             
-            console.log('🎫 Promo code processing:');
-            console.log('  Raw value:', data.promoCode);
-            console.log('  Trimmed/Uppercase:', promoCode);
+            console.log('🎫 Promo code entered:', promoCode);
             
-            if (promoCode && promoCode !== 'CYHUBFRIEND') {
-                // Invalid promo code
-                console.log('❌ Invalid promo code entered');
-                promoMessage.textContent = '❌ Invalid promo code. Please check and try again.';
-                promoMessage.style.color = '#ef4444';
-                promoMessage.style.display = 'block';
-                return; // Stop form submission
-            }
-            
-            if (promoCode === 'CYHUBFRIEND') {
-                // Valid promo code
-                console.log('✅ Valid promo code: CYHUBFRIEND');
-                promoMessage.textContent = '✓ Valid promo code applied!';
-                promoMessage.style.color = '#22c55e';
-                promoMessage.style.display = 'block';
-                data.promoCode = 'CYHUBFRIEND'; // Store validated code
+            if (promoCode) {
+                // Store whatever promo code was entered
+                data.promoCode = promoCode;
+                console.log('✅ Promo code saved:', promoCode);
             } else {
+                // No promo code provided
+                data.promoCode = 'NONE';
                 console.log('ℹ️ No promo code entered');
-                data.promoCode = 'NONE'; // No promo code provided
             }
             
             // DEBUG: Log the data being sent
