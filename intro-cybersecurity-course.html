@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Cybersecurity | Prep Course - MIC Armenia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '26046939738289330');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=26046939738289330&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --accent-cyan: #00ffc6;
+            --accent-blue: #0088ff;
+            --accent-purple: #8b5cf6;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --border: rgba(0, 255, 198, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 14, 26, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 198, 0.1);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, rgba(0, 255, 198, 0.1), rgba(0, 136, 255, 0.05));
+            border-bottom: 2px solid var(--accent-cyan);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 198, 0.03) 48%, rgba(0, 255, 198, 0.03) 52%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0, 255, 198, 0.03) 48%, rgba(0, 255, 198, 0.03) 52%, transparent 52%);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .course-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: var(--bg-primary);
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: rgba(0, 255, 198, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 198, 0.2);
+        }
+
+        .meta-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-cyan);
+        }
+
+        .meta-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .meta-text {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .text-block {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 198, 0.05);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        ul.check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.check-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        ul.check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        ul.bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.bullet-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        ul.bullet-list li::before {
+            content: '▪️';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .syllabus-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .syllabus-item:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .syllabus-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: var(--bg-primary);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .syllabus-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .info-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, rgba(0, 255, 198, 0.1), rgba(0, 136, 255, 0.1));
+            border: 2px solid var(--accent-cyan);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 198, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 4rem;
+            background: linear-gradient(135deg, rgba(10, 14, 26, 0.95), rgba(26, 35, 50, 0.95));
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 198, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 198, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-meta {
+                gap: 1rem;
+            }
+
+            .syllabus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">MIC Armenia × CyHub</a>
+                <a href="index.html#courses" class="back-btn">← Back to Courses</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="course-badge">Beginner Level</span>
+                <h1>Introduction to Cybersecurity</h1>
+                <p class="hero-subtitle">
+                    Your first step into the world of cybersecurity. Learn the fundamentals, explore real-world threats, and start your journey in one of today's most in-demand fields.
+                </p>
+                
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <span class="meta-text">24 Hours Total</span>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <span class="meta-text">Martin Ghambaryan</span>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <span class="meta-text">12 Sessions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2 class="section-title">About This Course</h2>
+                        <p class="text-block">
+                            This prep course is designed for anyone curious about cybersecurity. Whether you're exploring a potential career change, looking to protect yourself online, or just fascinated by how hackers work, this course gives you the essential foundation you need.
+                        </p>
+                        <p class="text-block">
+                            Over 24 hours of hands-on learning, you'll discover how cyber threats actually work—not just in theory, but through practical exercises and real-world scenarios. You'll learn the mindset of both attackers and defenders, giving you a complete picture of the cybersecurity landscape.
+                        </p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Who Should Take This Course</h2>
+                        <p class="text-block">
+                            This course is perfect for:
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Complete beginners with curiosity about cybersecurity</li>
+                            <li>Students exploring tech career paths</li>
+                            <li>Professionals looking to understand security fundamentals</li>
+                            <li>Anyone who wants to protect their personal devices and accounts</li>
+                            <li>Tech enthusiasts ready to learn something new</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h3>Prerequisites</h3>
+                            <p class="text-block">
+                                You just need basic computer knowledge—how to use a browser, install software, and navigate files. If you know some programming basics, that's helpful but not required. We'll teach you everything else from the ground up.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">What You'll Learn</h2>
+                        <p class="text-block">
+                            By the end of this course, you'll have practical knowledge in:
+                        </p>
+                        <ul class="check-list">
+                            <li>Understanding how malware actually works and spreads</li>
+                            <li>Recognizing phishing attempts and social engineering tactics</li>
+                            <li>Using Open-Source Intelligence (OSINT) techniques</li>
+                            <li>Securing your personal devices and online accounts</li>
+                            <li>Identifying common vulnerabilities in systems</li>
+                            <li>Understanding web application attacks (file uploads, XSS, SQL injection)</li>
+                            <li>Defending infrastructure from common threats</li>
+                            <li>Participating in Capture The Flag (CTF) competitions</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">What You Can Do After</h2>
+                        <p class="text-block">
+                            After completing this course, you'll be able to:
+                        </p>
+                        <ul class="check-list">
+                            <li>Decide if cybersecurity is the right career path for you</li>
+                            <li>Progress to our Advanced Cybersecurity course</li>
+                            <li>Better protect yourself and your organization from cyber threats</li>
+                            <li>Understand security news and reports you read online</li>
+                            <li>Start participating in beginner-level CTF competitions</li>
+                            <li>Have informed conversations about security with IT teams</li>
+                            <li>Apply basic security principles in your daily digital life</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Course Syllabus</h2>
+                        <p class="text-block">
+                            This course includes 12 hands-on sessions covering essential cybersecurity topics:
+                        </p>
+                        
+                        <div class="syllabus-grid">
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">1</div>
+                                <div class="syllabus-title">Introduction to Cybersecurity</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">2</div>
+                                <div class="syllabus-title">Malware (How does malware work?)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">3</div>
+                                <div class="syllabus-title">Phishing (How phishing attacks work)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">4</div>
+                                <div class="syllabus-title">Open-Source Intelligence (OSINT)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">5</div>
+                                <div class="syllabus-title">Defense (Personal devices and accounts)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">6</div>
+                                <div class="syllabus-title">Vulnerabilities and Attacks</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">7</div>
+                                <div class="syllabus-title">Web Application Attacks 1 (File Upload)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">8</div>
+                                <div class="syllabus-title">Web Application Attacks 2 (XSS)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">9</div>
+                                <div class="syllabus-title">Web Application Attacks 3 (SQL Injection)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">10</div>
+                                <div class="syllabus-title">Defense (Infrastructure)</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">11</div>
+                                <div class="syllabus-title">CTF Practice Day 1</div>
+                            </div>
+                            <div class="syllabus-item">
+                                <div class="syllabus-number">12</div>
+                                <div class="syllabus-title">CTF Practice Day 2</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Your Instructor</h2>
+                        <div class="highlight-box">
+                            <h3>Martin Ghambaryan</h3>
+                            <p class="text-block">
+                                Martin brings real-world cybersecurity experience to the classroom, making complex topics accessible for beginners. His teaching style focuses on practical skills you can use immediately, with plenty of hands-on exercises to reinforce what you learn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="info-card">
+                        <h3>Course Details</h3>
+                        <div class="info-item">
+                            <div class="info-label">Duration</div>
+                            <div class="info-value">24 Hours</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Sessions</div>
+                            <div class="info-value">12 x 2-hour sessions</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Level</div>
+                            <div class="info-value">Beginner</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Format</div>
+                            <div class="info-value">Hands-on Labs</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Instructor</div>
+                            <div class="info-value">Martin Ghambaryan</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Language</div>
+                            <div class="info-value">Armenian/English</div>
+                        </div>
+                    </div>
+
+                    <div class="cta-card">
+                        <a href="index.html#courses" class="btn-register">Register Now</a>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem;">
+                            Limited seats available. Secure your spot today!
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2011-2026 Microsoft Innovation Center Armenia. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Track page view
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'ViewContent', {
+                content_name: 'Introduction to Cybersecurity Course',
+                content_category: 'Course Details'
+            });
+        }
+    </script>
+</body>
+</html>
